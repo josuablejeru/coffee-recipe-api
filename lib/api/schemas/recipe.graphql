@@ -5,6 +5,7 @@ type Recipe {
 }
 extend type Query {
   getRecipes: [ Recipe! ]
+  getRecipe(id: ID!): Recipe
 }
 input RecipeInput {
   title: String!
