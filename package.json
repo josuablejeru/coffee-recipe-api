@@ -8,7 +8,10 @@
     "build": "tsc",
     "watch": "tsc -w",
     "test": "jest",
-    "cdk": "cdk"
+    "cdk": "cdk",
+    "schema": "graphql-schema-utilities",
+    "generate:schema": "graphql-schema-utilities -s './lib/api/schemas/**/*.graphql' -o './lib/api/schema.graphql'",
+    "deploy": "yarn generate:schema && yarn cdk deploy"
   },
   "devDependencies": {
     "@aws-cdk/assert": "1.117.0",
@@ -17,6 +20,7 @@
     "@typescript-eslint/eslint-plugin": "^4.29.0",
     "@typescript-eslint/parser": "^4.29.0",
     "aws-cdk": "1.117.0",
+    "graphql-schema-utilities": "^1.1.3",
     "jest": "^26.4.2",
     "ts-jest": "^26.2.0",
     "ts-node": "^9.0.0",
