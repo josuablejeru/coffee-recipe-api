@@ -1,0 +1,15 @@
+type Recipe {
+  id: ID!
+  title: String!
+  description: String
+}
+extend type Query {
+  getRecipes: [ Recipe! ]
+}
+input RecipeInput {
+  title: String!
+  description: String
+}
+extend type Mutation {
+  addRecipe(input: RecipeInput!): Recipe
+}

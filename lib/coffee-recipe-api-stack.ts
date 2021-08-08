@@ -14,14 +14,14 @@ export class CoffeeRecipeApiStack extends cdk.Stack {
 
     recipeDataSource.createResolver({
       typeName: 'Query',
-      fieldName: 'getDemos',
+      fieldName: 'getRecipes',
       requestMappingTemplate: appsync.MappingTemplate.dynamoDbScanTable(),
       responseMappingTemplate: appsync.MappingTemplate.dynamoDbResultList(),
     })
 
     recipeDataSource.createResolver({
       typeName: 'Mutation',
-      fieldName: 'addDemo',
+      fieldName: 'addRecipe',
       requestMappingTemplate: appsync.MappingTemplate.dynamoDbPutItem(
         appsync.PrimaryKey.partition('id').auto(),
         appsync.Values.projecting('input')

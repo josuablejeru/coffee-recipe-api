@@ -6,6 +6,10 @@ export const createApi = (scope: core.Construct) => {
   const _api = new appsync.GraphqlApi(scope, 'API', {
     name: 'coffe-recipe',
     schema: appsync.Schema.fromAsset(path.join(__dirname, 'schema.graphql')),
+    logConfig: {
+      fieldLogLevel: appsync.FieldLogLevel.ALL
+    },
+    xrayEnabled: true
   })
 
   return _api
