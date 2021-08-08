@@ -2,15 +2,30 @@ type Recipe {
   id: ID!
   title: String!
   description: String
+  steps: [ Step! ]!
 }
+
+type Step {
+  description: String!
+  time: Int
+}
+
 extend type Query {
   getRecipes: [ Recipe! ]
   getRecipe(id: ID!): Recipe
 }
+
 input RecipeInput {
   title: String!
   description: String
+  steps: [ AddStepInput! ]!
 }
+
+input AddStepInput {
+  description: String!
+  time: Int
+}
+
 extend type Mutation {
   addRecipe(input: RecipeInput!): Recipe
 }
