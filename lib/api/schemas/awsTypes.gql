@@ -10,3 +10,11 @@ scalar AWSURL
 scalar AWSPhone
 scalar AWSIPAddress
 scalar AWSJSON
+
+type S3Object {
+  bucket: String
+  key: String
+  region: String
+  url: AWSURL
+  uploadUrl: AWSURL
+}

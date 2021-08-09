@@ -9,6 +9,7 @@ type Recipe {
 type Step {
   description: String!
   time: AWSTime
+  picture: S3Object
 }
 
 extend type Query {
