@@ -10,7 +10,7 @@
     "test": "jest",
     "cdk": "cdk",
     "schema": "graphql-schema-utilities",
-    "generate:schema": "graphql-schema-utilities -s './lib/api/schemas/**/*.graphql' -o './lib/api/schema.graphql'",
+    "generate:schema": "graphql-schema-utilities -s './lib/api/schemas/**/*.gql' -o './lib/api/schema.graphql'",
     "deploy": "yarn generate:schema && yarn cdk deploy"
   },
   "devDependencies": {

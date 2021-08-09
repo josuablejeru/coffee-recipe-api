@@ -8,7 +8,7 @@ type Recipe {
 
 type Step {
   description: String!
-  time: Int
+  time: AWSTime
 }
 
 extend type Query {
@@ -25,7 +25,7 @@ input RecipeInput {
 
 input AddStepInput {
   description: String!
-  time: Int
+  time: AWSTime
 }
 
 extend type Mutation {
