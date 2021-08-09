@@ -1,0 +1,12 @@
+# This are all Scalars defined by AWS appsync (appsync don't allow you to have own custom Scalar)
+# All types there declared here so the schema validator passes
+
+scalar AWSDateTime
+scalar AWSEmail
+scalar AWSDate
+scalar AWSTime
+scalar AWSTimestamp
+scalar AWSURL
+scalar AWSPhone
+scalar AWSIPAddress
+scalar AWSJSON

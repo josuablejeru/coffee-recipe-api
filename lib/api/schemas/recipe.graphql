@@ -3,6 +3,7 @@ type Recipe {
   title: String!
   description: String
   steps: [ Step! ]!
+  createdAt: AWSDateTime!
 }
 
 type Step {
@@ -19,6 +20,7 @@ input RecipeInput {
   title: String!
   description: String
   steps: [ AddStepInput! ]!
+  createdAt: AWSDateTime
 }
 
 input AddStepInput {

@@ -26,13 +26,24 @@ export class CoffeeRecipeApiStack extends cdk.Stack {
       responseMappingTemplate: appsync.MappingTemplate.dynamoDbResultItem(),
     })
 
+    /*
+     * Custom MappingTemplate for instancing a createdAt field
+     * with the current DateTime set by dynamodb.
+     */
     recipeDataSource.createResolver({
       typeName: 'Mutation',
       fieldName: 'addRecipe',
-      requestMappingTemplate: appsync.MappingTemplate.dynamoDbPutItem(
-        appsync.PrimaryKey.partition('id').auto(),
-        appsync.Values.projecting('input')
-      ),
+      requestMappingTemplate: appsync.MappingTemplate.fromString(`
+      {
+        "version" : "2017-02-28",
+        "operation" : "PutItem",
+        "key": {
+            "id" : $util.dynamodb.toDynamoDBJson($util.autoId())
+        },
+        #set($input = $util.dynamodb.toMapValues($ctx.args.input))
+        #set($input.createdAt = $util.dynamodb.toDynamoDB($util.time.nowISO8601()))
+        "attributeValues": $util.toJson($input)
+      }`),
       responseMappingTemplate: appsync.MappingTemplate.dynamoDbResultItem(),
     })
   }
