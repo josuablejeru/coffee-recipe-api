@@ -9,9 +9,7 @@
     "watch": "tsc -w",
     "test": "jest",
     "cdk": "cdk",
-    "schema": "graphql-schema-utilities",
-    "generate:schema": "graphql-schema-utilities -s './lib/api/schemas/**/*.gql' -o './lib/api/schema.graphql'",
-    "deploy": "yarn generate:schema && yarn cdk deploy"
+    "deploy": "yarn cdk deploy"
   },
   "devDependencies": {
     "@aws-cdk/assert": "1.117.0",
@@ -34,6 +32,9 @@
     "@aws-cdk/aws-lambda-nodejs": "^1.117.0",
     "@aws-cdk/aws-s3": "^1.117.0",
     "@aws-cdk/core": "1.117.0",
+    "@dazn/lambda-powertools-logger": "^1.28.1",
+    "@dazn/lambda-powertools-pattern-basic": "^1.29.0",
+    "graphql-auth-transformer": "^6.24.17",
     "source-map-support": "^0.5.16"
   }
 }
