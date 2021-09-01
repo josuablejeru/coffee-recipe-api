@@ -1,0 +1,20 @@
+type Recipe @model {
+  id: ID!
+  title: String!
+  steps: [Step]
+}
+
+type Step {
+  id: ID!
+  description: String!
+  time: AWSTime
+  photo: S3Object
+}
+
+type S3Object {
+  bucket: String
+  key: String
+  region: String
+  url: AWSURL
+  uploadUrl: AWSURL
+}

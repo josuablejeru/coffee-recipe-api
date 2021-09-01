@@ -8,5 +8,5 @@ node_modules
 cdk.out
 
 
-# aws graphql-schema-utilities output
-schema.graphql
+# appsync-vtl-generator output
+lib/mappers/

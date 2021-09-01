@@ -9,7 +9,7 @@ export const createApi = (scope: core.Construct) => {
     logConfig: {
       fieldLogLevel: appsync.FieldLogLevel.ALL
     },
-    xrayEnabled: true
+    xrayEnabled: false // TODO: enable X-Ray for production
   })
 
   return _api
