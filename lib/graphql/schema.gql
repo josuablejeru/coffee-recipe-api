@@ -6,6 +6,7 @@ type Recipe @model {
 
 type Step {
   id: ID!
+  recipeId: ID! # needed for storing photos in s3
   description: String!
   time: AWSTime
   photo: S3Object

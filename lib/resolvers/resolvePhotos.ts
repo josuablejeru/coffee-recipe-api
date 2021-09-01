@@ -11,9 +11,11 @@ export const resolvePhotoLambda = (scope: core.Stack): lambda.Function => {
     entry: './lambda/photo-resolver.ts',
     handler: 'photoResolver',
     environment: {
-      BUCKET_ARN: photoBucket.bucketArn,
+      S3_BUCKET: photoBucket.bucketArn,
+      S3_URL: photoBucket.bucketWebsiteUrl
     }
   })
+
 
   return photoResolverLambda
 }

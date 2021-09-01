@@ -1,0 +1,9 @@
+{
+  "name": "coffe-recipe-lambdas",
+  "version": "1.0.0",
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.28.0",
+    "@dazn/lambda-powertools-logger": "1.28.1",
+    "aws-sdk": "^2.981.0"
+  }
+}
