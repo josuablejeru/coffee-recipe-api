@@ -1,6 +1,6 @@
 import * as cdk from '@aws-cdk/core';
 import * as appsync from '@aws-cdk/aws-appsync'
-import * as api from './api'
+import * as api from './graphql'
 import * as datasources from './storage'
 import * as photoResolver from './resolvers/resolvePhotos'
 import * as dynamoResolvers from './resolvers/dynamoResolvers'
@@ -11,10 +11,10 @@ export class CoffeeRecipeApiStack extends cdk.Stack {
 
     const recipeApi = api.createApi(this)
     const recipeStorage = datasources.getRecipeTable(this)
-    const photoStorage = photoResolver.resolvePhotoLambda(this)
+    const photoResolverLambda = photoResolver.resolvePhotoLambda(this)
 
     const recipeDataSource = recipeApi.addDynamoDbDataSource('recipeDatasource', recipeStorage)
-    const photoDataSource = recipeApi.addLambdaDataSource('photo', photoStorage, {
+    const photoDataSource = recipeApi.addLambdaDataSource('photo', photoResolverLambda, {
       description: 'resolvs all media objects stored in s3'
     })
 
