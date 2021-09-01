@@ -1,6 +1,5 @@
 import * as appsync from '@aws-cdk/aws-appsync'
 import * as path from 'path'
-import {mapResolverTemplate} from './resolver-utils'
 import * as fs from 'fs'
 
 export const appendResolvers = (datasoucre: appsync.DynamoDbDataSource) => {
